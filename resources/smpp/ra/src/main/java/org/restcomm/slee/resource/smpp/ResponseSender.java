@@ -79,7 +79,7 @@ public class ResponseSender extends Thread {
                     }
                 }
             } catch (Exception e) {
-                tracer.warning(EsmeSender.LOGGER_TAG, e);
+                tracer.severe("Exception when sending of sendResponsePdu: " + e.getMessage(), e);
                 if (task != null) {
                     fireSendPduStatusEvent(EventsType.SEND_PDU_STATUS, task.getSmppServerTransaction(), task.getRequest(),
                             task.getResponse(), e, false);
